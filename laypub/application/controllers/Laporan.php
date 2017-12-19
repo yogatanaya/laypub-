@@ -8,38 +8,46 @@ class Laporan extends CI_Controller{
     }
     
     function index(){
-        $pdf = new FPDF('l','mm','A5');
+        $pdf = new FPDF('l','mm','A4');
         // membuat halaman baru
         $pdf->AddPage();
         // setting jenis font yang akan digunakan
         $pdf->SetFont('Arial','B',16);
         // mencetak string 
-        $pdf->Cell(190,7,'Laporan Pelayanan Publik Kota Denpasar',0,1,'C');
+        $pdf->Cell(190,7,'Laporan Pengaduan',0,1,'C');
         $pdf->SetFont('Arial','B',12);
-        $pdf->Cell(190,7,'Daftar Laporan',0,1,'C');
+        $pdf->Cell(190,7,'',0,1,'C');
         // Memberikan space kebawah agar tidak terlalu rapat
-   
-        $pdf->Cell(85,6,'Deskripsi Keluhan',1,0);
-        $pdf->Cell(85,6,'Nama Pelayanan',1,1);
+        //$pdf->Cell(10,7,'',0,1);
+        //$pdf->SetFont('Arial','B',10);
+        $pdf->Cell(50,6,'NAMA LAYANAN',1,0);
+        $pdf->Cell(130,6,'DESKRIPSI',1,0);
+        $pdf->Cell(50,6,'STATUS',1,0);
+        $pdf->Cell(50,6,'TANGGAL',1,0);
+        $pdf->Cell(190,7,'',0,1,'C');
 
 
+        $query=$this->db->query('SELECT
+            layanan.nama_layanan,
+            `status`.`status`,
+            aduan.date,
+            aduan.deskripsi
+            FROM
+            aduan
+            Inner Join layanan ON aduan.id_layanan = layanan.id_layanan
+            Inner Join `status` ON aduan.id_status = `status`.id_status
+            
+            ');
 
-        $pdf->SetFont('Arial','',10);
-        $aduan = $this->db->query('SELECT
-                        aduan.deskripsi,
-                        aduan.id_layanan,
-                        aduan.date,
-                        layanan.nama_layanan
-                        FROM
-                        aduan
-                        Inner Join layanan ON aduan.id_layanan = layanan.id_layanan
-                        ')->result();
-        foreach ($aduan as $row){
-         
-            $pdf->Cell(85,6,$row->deskripsi,1,0);
-            $pdf->Cell(85,6,$row->nama_layanan,1,0);
-         
+        
+        foreach ($query->result() as $row){
+            $pdf->Cell(50,6,$row->nama_layanan ,1,0);
+            $pdf->Cell(130,6,$row->deskripsi,1,0);
+            $pdf->Cell(50,6, $row->status, 1,0);
+            $pdf->Cell(50,6,$row->date,1,1);
+            //$pdf->Cell(25,6,$row->tanggal_lahir,1,1); 
         }
+        
         $pdf->Output();
     }
 }

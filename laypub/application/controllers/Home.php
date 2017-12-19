@@ -15,13 +15,15 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
+		$data['title']='Beranda';
 		//$this->load->model('model_layanan');
 		//$this->load->model('model_status');
 		$data['layanan']=$this->model_layanan->get_layanan();
 		$data['status']=$this->model_status->get_status();
-		//$this->load->view('header');
+		
+		$this->load->view('header', $data);
 		$this->load->view('home', $data);
-		//$this->load->view('footer');
+		$this->load->view('footer', $data);
 	}
 
 
@@ -37,14 +39,15 @@ class Home extends CI_Controller {
 		$date=$this->input->post('date');
 
 		 $this->form_validation->set_rules('nik','nik','required');
-		 $this->form_validation->set_rules('nama_pengadu','nama_pengadu','required');
+		 $this->form_validation->set_rules('nama_pengadu','nama_pengadu', 'required');
+
 		 $this->form_validation->set_rules('id_layanan','id_layanan','required');
-		 $this->form_validation->set_rules('id_status','id_status','required');
+		 //$this->form_validation->set_rules('id_status','id_status','required');
 		// $this->form_validation->set_rules('date','tanggal','required');
 		
 		if($this->form_validation->run()==FALSE){
 			echo "<script>
-			alert('salah satu form ada yang kosong');
+			alert('salah satu form ada yang kosong atau salah pengisian form');
 			document.location='".base_url()."home';
 			</script>";
 		}else {
@@ -53,12 +56,12 @@ class Home extends CI_Controller {
 			'nama_pengadu'=>$nama_pengadu,
 			'deskripsi'=>$deskripsi,
 			'id_layanan'=>$id_layanan,
-			'id_status'=>$id_status,
+			'id_status'=>1,
 			 'date'=> date('Y-m-d H:i:s')
 
 			);
 			echo "<script>alert('Input Berhasil');
-			document.location='".base_url()."pengaduan';
+			document.location='".base_url()."home/pengaduan';
 			</script>";
 			$this->model_aduan->insert_data($data, 'aduan');
 		}
@@ -72,12 +75,18 @@ class Home extends CI_Controller {
 
 
 	function pengaduan(){
+		$data['title']='Pengaduan';
 		$data['aduan']=$this->model_aduan->get_all_aduan();
+		$this->load->view('header',$data);
 		$this->load->view('view_pengaduan_user',$data);
+		$this->load->view('footer',$data);
 	}
 
 	function about(){
+		$data['title']='Tentang';
+		$this->load->view('header',$data);
 		$this->load->view('about');
+		$this->load->view('footer',$data);
 	}
 
 }
