@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title></title>
+    <title><?php echo $title; ?></title>
     <link rel="shortcut icon" href="<?php echo base_url('assets/img/denpasar.ico');?>">
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
@@ -35,7 +35,7 @@
   <body>
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+    <header class="masthead" style="background-image: url('<?php echo base_url('assets/img/home-bg.jpg');?>')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">

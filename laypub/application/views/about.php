@@ -1,4 +1,3 @@
-<?php include('header.php');?>
 <!-- Main Content -->
     <div class="container">
       <div class="row">
@@ -13,4 +12,3 @@
         </div>
       </div>
     </div>
-<?php include('footer.php');?>

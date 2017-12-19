@@ -2,26 +2,27 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Login</title>
-   <link rel="shortcut icon" href="<?php base_url();?>assets/img/denpasar.ico">
+  <title><?php echo $title; ?></title>
+   <link rel="shortcut icon" href="<?php echo base_url('assets/img/denpasar.ico');?>">
+   <link rel="shortcut icon" href="<?php base_url('assets/img/denpasar.ico');?>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 
-      <link rel="stylesheet" href="<?php base_url()?>assets/login/css/style.css">
+      <link rel="stylesheet" href="<?php echo base_url('assets/login/css/style.css')?>">
 
   
 </head>
 
-<body>
+<body style="background-image: url('<?php echo base_url('assets/login/blur.jpg');?>');">
   
 <!-- Form Mixin-->
 <!-- Input Mixin-->
 <!-- Button Mixin-->
 <!-- Pen Title-->
 <div class="pen-title">
-  <img src="<?php base_url();?>assets/img/logo-login.jpg" alt="logo-login" style="width: 30%; height: 30%">
+  <img src="<?php echo base_url('assets/img/logo-login.jpg');?>" alt="logo-login" style="width: 30%; height: 30%">
   <!--h1>Flat Login Form</h1><span>Pen <i class='fa fa-paint-brush'></i> + <i class='fa fa-code'></i> by <a href='http://andytran.me'>Andy Tran</a></span-->
 </div>
 <!-- Form Module-->
@@ -52,7 +53,7 @@
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://codepen.io/andytran/pen/vLmRVp.js'></script>
 
-    <script  src="<?php base_url();?>assets/login/js/index.js"></script>
+    <script  src="<?php echo base_url('assets/login/js/index.js');?>"></script>
 
 </body>
 </html>

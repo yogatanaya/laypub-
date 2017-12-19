@@ -8,8 +8,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title></title>
+    <title>
+      <?php echo $title;?>
+    </title>
     <link rel="shortcut icon" href="<?php echo  base_url('assets/img/denpasar.ico');?>">
+
+   
+    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <!-- Bootstrap core CSS -->
     <link href="<?php echo   base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
 
@@ -26,7 +34,6 @@
     <link rel="stylesheet" type="text/css" href="<?php  echo base_url('assets/DataTables/datatables.min.css');?>"/>
  
     <script type="text/javascript" src="<?php  echo base_url('assets/DataTables/datatables.min.js');?>"></script>
-
 
 
 

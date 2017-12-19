@@ -1,13 +1,17 @@
-<?php include('header.php');?>
 	<div class="container">
     <div class="row">
-        <div class="col-lg-10 col-md-10 mx-auto">
+        <div class="col-lg-12 col-md-10 mx-auto">
       		<div class="table-responsive">
 
             
-            <a href="<?php echo base_url();?>Laporan" method="post" enctype="multipart/form-data" class="btn btn-primary">Export</a>
-        
+            
+            <a href="<?php echo base_url('Laporan');?>" method="post" enctype="multipart/form-data" class="btn btn-primary">Export</a>
+            
+            
 
+            <br>
+            <br>
+            
 
 
       			<table class="table" class="dataTable">
@@ -37,10 +41,10 @@
                   			<td>
                         <ul>
                   				<li>
-                            <a href ="<?php echo site_url('admin/delete/'.$list['id_aduan']);?>" onclick=" return confirm('Are You Sure Want To Delete?');">delete</a>
+                            <a href ="<?php echo site_url('admin/delete/'.$list['id_aduan']);?>" onclick=" return confirm('Are You Sure Want To Delete?');"><span class="glyphicon glyphicon-trash"></span>Delete</a>
                           </li>
                           <li>
-                            <a href ="<?php echo site_url('admin/edit/'.$list['id_aduan']);?>">Edit</a>
+                            <a href ="<?php echo site_url('admin/edit/'.$list['id_aduan']);?>"><span class="glyphicon glyphicon-edit">Edit</span></a>
                           </li>
                         </ul>
                   			</td>
@@ -52,4 +56,3 @@
       	</div>
     </div>
 </div>
-<?php include('footer.php');?>

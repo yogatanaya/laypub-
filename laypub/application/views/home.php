@@ -1,4 +1,3 @@
-<?php include('header.php'); ?>
     <!-- Main Content -->
     <div class="container">
       <div class="row">
@@ -42,7 +41,7 @@
                   <hr>
 
                 <div class="form-group floating-label-form-group controls">
-                  <!--status-->
+                  <!--status>
                   <label>Status</label>
                    <select class="form-control" name="id_status">
                   <option value="">Status</option>
@@ -51,12 +50,10 @@
                   <?php echo $status['status']; ?>
                   </option>
                   <?php } ?>
-                  </select>
-
-                  
+                  </select--> 
                 </div>
                   
-                </div>
+              </div>
                 <input type="submit" name="submit" class="btn btn-primary" id="sendMessageButton">
             </div>
             </form>
@@ -69,5 +66,4 @@
     </div>
 
     <hr>
-<?php include('footer.php'); ?>
 
