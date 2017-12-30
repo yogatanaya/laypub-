@@ -46,10 +46,10 @@ class model_aduan extends CI_Model{
 		return $this->db->get_where($table,$where);
 	}
  
-	 function update_data($data){
-
-		$this->db->where('id_status');
-		$this->db->update('aduan', $data);
-	}
+	 
+	function update_data($where,$data,$table){
+		$this->db->where($where);
+		$this->db->update($table,$data);
+	}	
 }
 ?>
